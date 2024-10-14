@@ -23,10 +23,10 @@ Vehicle.prototype.showInfo = function () {
 };
 
 Vehicle.prototype.compareSpeed = function (anotherVehicle) {
-  if (this.maxSpeed > anotherVehicle.velocidadMaxima) {
+  if (this.maxSpeed > anotherVehicle.maxSpeed) {
     return `El ${this.mark} ${this.model} es mas rapido`;
-  } else if (this.maxSpeed < anotherVehicle.velocidadMaxima) {
-    return `El ${anotherVehicle.marca} ${anotherVehicle.modelo} es mas rapido`;
+  } else if (this.maxSpeed < anotherVehicle.maxSpeed) {
+    return `El ${anotherVehicle.mark} ${anotherVehicle.model} es mas rapido`;
   } else {
     return `Los 2 vehiculos son igual de rapidos`;
   }
