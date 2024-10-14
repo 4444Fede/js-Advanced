@@ -1,56 +1,56 @@
-function Vehiculo(marca, modelo, velocidadMaxima) {
-  this.marca = marca;
-  this.modelo = modelo;
-  this.velocidadMaxima = velocidadMaxima;
-  this.velocidadActual = 0;
+function Vehicle(mark, model, maxSpeed) {
+  this.mark = mark;
+  this.model = model;
+  this.maxSpeed = maxSpeed;
+  this.currentSpeed = 0;
 }
 
-Vehiculo.prototype.acelerar = function (velocidad) {
-  this.velocidadActual += velocidad;
-  if (this.velocidadActual > this.velocidadMaxima) {
-    this.velocidadActual = this.velocidadMaxima;
+Vehicle.prototype.accelerate = function (speed) {
+  this.currentSpeed += speed;
+  if (this.currentSpeed > this.maxSpeed) {
+    this.currentSpeed = this.maxSpeed;
   }
-  return `El vehiculo va a ${this.velocidadActual} por hora`;
+  return `El vehiculo va a ${this.currentSpeed} por hora`;
 };
 
-Vehiculo.prototype.detener = function () {
-  this.velocidadActual = 0;
+Vehicle.prototype.stop = function () {
+  this.currentSpeed = 0;
   return `El vehiculo freno`;
 };
 
-Vehiculo.prototype.mostrarInfo = function () {
-  return `Marca: ${this.marca}, Modelo: ${this.modelo}, Velocidad Maxima: ${this.velocidadMaxima}`;
+Vehicle.prototype.showInfo = function () {
+  return `Marca: ${this.mark}, Modelo: ${this.model}, Velocidad Maxima: ${this.maxSpeed}`;
 };
 
-Vehiculo.prototype.compararVelocidad = function (otroVehiculo) {
-  if (this.velocidadMaxima > otroVehiculo.velocidadMaxima) {
-    return `El ${this.marca} ${this.modelo} es mas rapido`;
-  } else if (this.velocidadMaxima < otroVehiculo.velocidadMaxima) {
-    return `El ${otroVehiculo.marca} ${otroVehiculo.modelo} es mas rapido`;
+Vehicle.prototype.compareSpeed = function (anotherVehicle) {
+  if (this.maxSpeed > anotherVehicle.velocidadMaxima) {
+    return `El ${this.mark} ${this.model} es mas rapido`;
+  } else if (this.maxSpeed < anotherVehicle.velocidadMaxima) {
+    return `El ${anotherVehicle.marca} ${anotherVehicle.modelo} es mas rapido`;
   } else {
     return `Los 2 vehiculos son igual de rapidos`;
   }
 };
 
-function Auto(marca, modelo, velocidadMaxima, puertas) {
-  Vehiculo.call(this, marca, modelo, velocidadMaxima);
-  this.puertas = puertas;
+function Car(mark, model, maxSpeed, doors) {
+  Vehicle.call(this, mark, model, maxSpeed);
+  this.doors = doors;
 }
 
-Object.setPrototypeOf(Auto.prototype, Vehiculo.prototype);
+Object.setPrototypeOf(Car.prototype, Vehicle.prototype);
 
-Auto.prototype.abrirPuertas = function () {
-  return `Se abrieron las ${this.puertas} puertas`;
+Car.prototype.openDoors = function () {
+  return `Se abrieron las ${this.doors} puertas`;
 };
 
-function Moto(marca, modelo, velocidadMaxima, sidecar) {
-  Vehiculo.call(this, marca, modelo, velocidadMaxima);
+function Motorcycle(mark, model, maxSpeed, sidecar) {
+  Vehicle.call(this, mark, model, maxSpeed);
   this.sidecar = sidecar;
 }
 
-Object.setPrototypeOf(Moto.prototype, Vehiculo.prototype);
+Object.setPrototypeOf(Motorcycle.prototype, Vehicle.prototype);
 
-Moto.prototype.mostrarSidecar = function () {
+Motorcycle.prototype.hasSidecar = function () {
   if (this.sidecar) {
     return `Tiene sidecar`;
   } else {
@@ -58,29 +58,29 @@ Moto.prototype.mostrarSidecar = function () {
   }
 };
 
-const auto1 = new Auto("Toyota", "Corolla", 180, 4);
-const auto2 = new Auto("Ford", "Mustang", 250, 2);
-const moto1 = new Moto("Yamaha", "MT-07", 200, false);
-const moto2 = new Moto("Harley-Davidson", "Fat Boy", 160, true);
+const auto1 = new Car("Toyota", "Corolla", 180, 4);
+const auto2 = new Car("Ford", "Mustang", 250, 2);
+const moto1 = new Motorcycle("Yamaha", "MT-07", 200, false);
+const moto2 = new Motorcycle("Harley-Davidson", "Fat Boy", 160, true);
 
-console.log(auto1.mostrarInfo());
-console.log(auto2.mostrarInfo());
-console.log(moto1.mostrarInfo());
-console.log(moto2.mostrarInfo());
+console.log(auto1.showInfo());
+console.log(auto2.showInfo());
+console.log(moto1.showInfo());
+console.log(moto2.showInfo());
 
-console.log(auto1.abrirPuertas());
-console.log(auto2.abrirPuertas());
-console.log(moto1.mostrarSidecar());
-console.log(moto2.mostrarSidecar());
+console.log(auto1.openDoors());
+console.log(auto2.openDoors());
+console.log(moto1.hasSidecar());
+console.log(moto2.hasSidecar());
 
-console.log(auto1.acelerar(60));
-console.log(auto2.acelerar(120));
-console.log(auto2.acelerar(100));
-console.log(moto1.acelerar(100));
-console.log(moto2.acelerar(80));
+console.log(auto1.accelerate(60));
+console.log(auto2.accelerate(120));
+console.log(auto2.accelerate(100));
+console.log(moto1.accelerate(100));
+console.log(moto2.accelerate(80));
 
-console.log(auto1.detener());
-console.log(moto1.detener());
+console.log(auto1.stop());
+console.log(moto1.stop());
 
-console.log(auto1.compararVelocidad(moto1));
-console.log(auto2.compararVelocidad(moto2));
+console.log(auto1.compareSpeed(moto1));
+console.log(auto2.compareSpeed(moto2));
