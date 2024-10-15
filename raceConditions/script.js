@@ -4,6 +4,7 @@ let users = [
   { name: "pepe", ticketsRequested: 5 },
   { name: "pipi", ticketsRequested: 4 },
   { name: "pupu", ticketsRequested: 2 },
+  { name: "popo", ticketsRequested: 7 },
 ];
 
 function getTicket(user) {
@@ -22,9 +23,8 @@ function getTicket(user) {
 }
   
 function buyTickets() {
-    users.forEach(async (user) => {
+    users.forEach(async function(user){
         await getTicket(user);
     });
 }
 buyTickets();
- 
