@@ -20,3 +20,11 @@ function getTicket(user) {
     }, Math.random() * 10000);
   });
 }
+  
+function buyTickets() {
+    users.forEach(async (user) => {
+        await getTicket(user);
+    });
+}
+buyTickets();
+ 
