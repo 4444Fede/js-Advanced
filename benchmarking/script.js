@@ -1,5 +1,5 @@
-console.log('Exercise 1')
-console.log('')
+console.log("Exercise 1");
+console.log("");
 
 let array = [];
 for (let index = 0; index < 1000000; index++) {
@@ -26,9 +26,9 @@ array.forEach((element, index) => {
 });
 console.timeEnd("forEach loop");
 
-console.log('')
-console.log('Exercise 2')
-console.log('')
+console.log("");
+console.log("Exercise 2");
+console.log("");
 
 let globalVar = 0;
 
@@ -52,26 +52,26 @@ function localVarTest() {
 globalVarTest();
 localVarTest();
 
-console.log('')
-console.log('Exercise 3')
-console.log('')
+console.log("");
+console.log("Exercise 3");
+console.log("");
 
 function concatWithPlus() {
-console.time("Concatenation with +");
-let result = "";
-for (let i = 0; i < 1000000; i++) {
+  console.time("Concatenation with +");
+  let result = "";
+  for (let i = 0; i < 1000000; i++) {
     result += "X";
+  }
+  console.timeEnd("Concatenation with +");
 }
-console.timeEnd("Concatenation with +");
-}
-  
+
 function concatWithTemplate() {
-console.time("Concatenation with template literals");
-let result = "";
-for (let i = 0; i < 1000000; i++) {
+  console.time("Concatenation with template literals");
+  let result = "";
+  for (let i = 0; i < 1000000; i++) {
     result = `${result}X`;
-}
-console.timeEnd("Concatenation with template literals");
+  }
+  console.timeEnd("Concatenation with template literals");
 }
 
 concatWithPlus();
