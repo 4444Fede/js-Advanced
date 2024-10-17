@@ -26,3 +26,28 @@ array.forEach((element, index) => {
 });
 console.timeEnd("forEach loop");
 
+console.log('')
+console.log('Exercise 2')
+console.log('')
+
+let globalVar = 0;
+
+function globalVarTest() {
+  console.time("global variables");
+  for (let i = 0; i < 1000000; i++) {
+    globalVar++;
+  }
+  console.timeEnd("global variables");
+}
+
+function localVarTest() {
+  console.time("local variables");
+  let localVar = 0;
+  for (let i = 0; i < 1000000; i++) {
+    localVar++;
+  }
+  console.timeEnd("local variables");
+}
+
+globalVarTest();
+localVarTest();
