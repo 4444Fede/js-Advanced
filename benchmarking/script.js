@@ -57,21 +57,21 @@ console.log('Exercise 3')
 console.log('')
 
 function concatWithPlus() {
-console.time("concatenation with +");
+console.time("Concatenation with +");
 let result = "";
 for (let i = 0; i < 1000000; i++) {
     result += "X";
 }
-console.timeEnd("concatenation with +");
+console.timeEnd("Concatenation with +");
 }
   
 function concatWithTemplate() {
-console.time("concatenation with template literals");
+console.time("Concatenation with template literals");
 let result = "";
 for (let i = 0; i < 1000000; i++) {
     result = `${result}X`;
 }
-console.timeEnd("concatenation with template literals");
+console.timeEnd("Concatenation with template literals");
 }
 
 concatWithPlus();
